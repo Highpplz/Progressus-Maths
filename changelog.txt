@@ -1,0 +1,10 @@
+0.1.1.A:
+Added system to prevent the prograrm from working without lisense verification.
+Added system to detect if a new version of the prograrm has been installed or if it is a fresh install and then use that data to display the apporpriate documentation.
+Added system to enshure the user reads the disclaimer with regards to the packaged python installer.
+Added a system to make shure the depencencys of the program are all up to date.
+0.2.0.A:
+Added a full installer with instuctions.
+Made a launcher.
+Made a desktop shortcut demo.
+Fixed the crashes when you input a float or string (decimal number or letters) into the difficulty or answer sections.
