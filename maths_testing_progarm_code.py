@@ -42,7 +42,7 @@ global read
 global question_as_string
 global user_answer
 global computer_answer
-global  internal_dependency_number 
+global  internal_dependency_number
 global see_changelog_latest
 global credits_
 global see_full_changelog
@@ -133,7 +133,7 @@ else:
 if read != 'Yes' or new_version == 'Yes' or new_install == 'Yes' or any_read_files == 'No':
     open_file_internaly = input('Would you like to read the lisense file in program?\n(Y/N) :')
     if open_file_internaly == 'Y':
-        lisense = open('copyright and lisense.txt','rt')
+        lisense = open('LISENCE.md','rt')
         print (lisense.readlines())
     elif open_file_internaly == 'N':
         print('Please find the file "copyright and lisense.txt" in the game install directory and read it or restart the progarm and have it display the lisense internaly.')
