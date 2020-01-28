@@ -1,5 +1,3 @@
-#In-order to read this code you must have fully agreed with the lisense if you continute to do without agreeing to it, it will be considered an
-#acceptace as you will have seen this message agree to the licesnse!
 
 #Version 0.1.0 Alpha
 

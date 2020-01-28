@@ -1,5 +1,5 @@
 0.2.0.A:
-Added a full installer with instuctions.
+Added a full installer with instructions.
 Made a launcher.
 Made a desktop shortcut demo.
 Fixed the crashes when you input a float or string (decimal number or letters) into the difficulty or answer sections
