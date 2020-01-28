@@ -2,8 +2,8 @@ Echo off
 color 5
 Echo Starting game!
 Echo Loading...
-title Reset Stats Sytstem
+title Reset Stats System
 @reset_stats.py
-title Maths Quiz Prograrm
+title Maths Quiz Program
 color b
 @maths_testing_progarm_code.py
