@@ -15,8 +15,7 @@ if last_reset_stats_version_ran != reset_stats_version_number:
     if version_last_ran != 'never':
         print('Your version of the reset stats program is outdated please re-download the installer and fully reinstall the prograrm.')
         input('Press enter to contininute')
-else:
-    reset_stats_file.write(reset_stats_version_number)
+reset_stats_file.write(reset_stats_version_number)
 reset_stats_file.close()
 def stat_update():
     total_questions = open('total_questions.txt','wt')
