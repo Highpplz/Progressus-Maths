@@ -46,8 +46,6 @@ def stat_update():
     total_score = open('total_score.txt','wt')
     total_score.write('0')
     total_score.close()
-    user_nicknames = open('user_nicknames.txt','wt')
-    user_nicknames.close()
     no_reset_file_create = open('no_reset.txt','wt')
     no_reset_file_create.close()
     print('Install compleate!')
