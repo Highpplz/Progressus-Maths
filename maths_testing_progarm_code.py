@@ -131,7 +131,7 @@ credits_read_file.close()
 bugfinders_read_file = open('bugfinders_read.txt','rt')
 bugfinders_read = bugfinders_read_file.readline()
 bugfinders_read_file.close
-if disclaimer_read != 'Yes' or credits_read != 'Yes' or bugfinders_read != 'Yes' or changelog_latest_read != 'Yes':
+if disclaimer_read != 'Yes' or credits_read != 'Yes' or bugfinders_read != 'Yes' or changelog_latest_read != 'Yes' or new_account == 'No':
     any_read_files = 'No'
 else:
     any_read_files= 'Yes'
@@ -152,7 +152,7 @@ else:
     print('\nNon crititcal error message: Version not verified as a precution please contact the dev team, automaticly reseting lisence verification.\n')
     read = 'no'
     any_read_files == 'No'
-if read != 'Yes' or new_version == 'Yes' or new_install == 'Yes' or any_read_files == 'No':
+if read != 'Yes' or new_version == 'Yes' or new_install == 'Yes' or any_read_files == 'No' or new_account == 'Yes':
     open_file_internaly = input('Would you like to read the lisense file in program?\n(Y/N) :')
     if open_file_internaly == 'Y':
         lisense = open('LISENCE.md','rt')
@@ -183,7 +183,7 @@ elif read == 'no' or read == 'No' or read == 'NO':
     print('Attempted bypass of lisense system detected! Will now close the program!')
     input('Press enter to close')
     exit()
-if disclaimer_read != 'Yes' or new_version == 'Yes' or new_install == 'Yes' or disclaimer_read == 'no' or disclaimer_read == 'No' or disclaimer_read == 'NO' or disclaimer_read == 'nO':
+if disclaimer_read != 'Yes' or new_version == 'Yes' or new_install == 'Yes' or disclaimer_read == 'no' or disclaimer_read == 'No' or disclaimer_read == 'NO' or disclaimer_read == 'nO'or new_account == 'Yes':
     disclaimer_file = open('disclaimer.txt','rt')
     disclaimer_data = disclaimer_file.readlines()
     disclaimer_file.close()
@@ -205,7 +205,7 @@ if disclaimer_read != 'Yes' or new_version == 'Yes' or new_install == 'Yes' or d
         print('Attempt to bypass disclaimer accepance system detected now closing prograrm!')
         input('Press enter to close')
         exit()
-if new_version == 'Yes' or credits_read == 'No' or any_read_files == 'No':
+if new_version == 'Yes' or credits_read == 'No' or any_read_files == 'No' or new_account == 'Yes':
     print('\nWould you like to veiw the credits for the prograrm?')
     see_credits = input('(Y/N):')
     if see_credits == 'Y':
@@ -262,7 +262,7 @@ if dependencies_up_to_date == 'No' and new_version == 'Yes' and new_install == '
     print('Your dependencies seem to be older than the version of code you are running./nPlease always fully unzip all files in the zip folder for an update.')
 elif dependencies_up_to_date == 'No' and new_install == 'Yes':
     print('It seems all the .txt files have not been fully un-ziped when you installed this prograrm please try and re-un-zip this prograrm of you are having issues please contact a member of the dev team')
-version_file_write =open('version_last_ran.txt','wt')
+version_file_write = open('version_last_ran.txt','wt')
 version_file_write.write(current_version)
 version_file_write.close()
 nickname_file = open('user_nicknames.txt','rt')
