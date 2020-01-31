@@ -32,6 +32,8 @@ from zipfile import ZipFile
 with ZipFile('do_not_unzip_me.zip', 'r') as zipObj:
     #extract all the contents of zip file into current directory
     zipObj.extractall()
+reset_stats_file = open('reset_stats_version.txt','w+')
+reset_stats_file.close()
 lisense_file_read = open('lisense_read.txt','w+')
 lisense_file_read.close()
 credits_file_read = open('credits_read.txt','w+')
