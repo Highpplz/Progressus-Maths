@@ -28,20 +28,19 @@
 #
 import os
 valid_input = 'false'
-reset_stats_version_number = '0.2.0.A/1.0'
-reset_stats_version_number_split = reset_stats_version_number.split("/")
-reset_stats_file = open('reset_stats_version.txt','w+')
-last_reset_stats_version_ran = reset_stats_file.readline()
-version_last_ran_file = open('version_last_ran.txt','rt')
-version_last_ran = version_last_ran_file.readline()
-version_last_ran_file.close()
-if last_reset_stats_version_ran != reset_stats_version_number_split[0]:
-    if version_last_ran != 'never':
-        print('Your version of the reset stats program is of a different version to the main game please re-download the installer and/or fully reinstall the prograrm.')
-        input('Press enter to contininute')
-        b == a
-reset_stats_file.write(reset_stats_version_number)
-reset_stats_file.close()
+#reset_stats_version_number = '0.2.0.A/1.0'
+#reset_stats_version_number_split = reset_stats_version_number.split("/")
+#reset_stats_file = open('reset_stats_version.txt','w+')
+#last_reset_stats_version_ran = reset_stats_file.readline()
+#version_last_ran_file = open('version_last_ran.txt','rt')
+#version_last_ran = version_last_ran_file.readline()
+#version_last_ran_file.close()
+#if last_reset_stats_version_ran != reset_stats_version_number_split[0]:
+    #if version_last_ran != 'never':
+        #print('Your version of the reset stats program is of a different version to the main game please re-download the installer and/or fully reinstall the prograrm.')
+        #input('Press enter to contininute')
+#reset_stats_file.write(reset_stats_version_number)
+#reset_stats_file.close()
 def stat_update():
     total_questions = open('total_questions.txt','wt')
     total_questions.write('0')
