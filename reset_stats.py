@@ -39,6 +39,7 @@ if last_reset_stats_version_ran != reset_stats_version_number_split[0]:
     if version_last_ran != 'never':
         print('Your version of the reset stats program is of a different version to the main game please re-download the installer and/or fully reinstall the prograrm.')
         input('Press enter to contininute')
+        b == a
 reset_stats_file.write(reset_stats_version_number)
 reset_stats_file.close()
 def stat_update():
