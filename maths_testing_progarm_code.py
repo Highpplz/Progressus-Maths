@@ -87,7 +87,7 @@ global bugfinders_read
 global changelog_latest_read
 global number_one_not_even
 global number_two_not_even
-internal_dependency_number = '2'
+internal_dependency_number = '3'
 number_one_not_even = 'true'
 number_two_not_even = 'true'
 veiw_error = 'N'
