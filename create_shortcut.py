@@ -26,7 +26,6 @@
 #OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #SOFTWARE.
 #
-#from pyshortcuts import make_shortcut
-#
-#make_shortcut('startgame.bat', name='Progressus Maths')
-              #icon='/home/user/icons/myicon.ico')
+from pyshortcuts import make_shortcut
+make_shortcut('startgame.bat', name='Progressus Maths')
+              icon='/home/user/icons/myicon.ico')
