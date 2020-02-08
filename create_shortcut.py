@@ -28,4 +28,4 @@
 #
 from pyshortcuts import make_shortcut
 make_shortcut('startgame.bat', name='Progressus Maths')
-              icon='/home/user/icons/myicon.ico')
+              icon = #in place of this comment would be the directory of the icon for the progarm
