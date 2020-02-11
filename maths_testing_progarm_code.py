@@ -101,6 +101,10 @@ random_operation = 'False'
 #label = Label(program, text='Welcome to my maths practice game!')
 #label.grid(column=5,row=1)
 #program.mainloop()
+add = 'No'
+subtract = 'No'
+times = 'No'
+divide = 'No'
 validation_loop_variable = 'Not Valid'
 dependnency_file = open('dependency_number.txt','rt')
 extenal_dependncy_number = dependnency_file.readline()
@@ -319,6 +323,10 @@ while quit_yn == 'N':
             validation_loop_variable = 'Valid'
         elif user_operation_input == '?':
             system_operation = 'Random'
+            add = 'Yes'
+            subtract = 'Yes'
+            times = 'Yes'
+            divide = 'Yes'
             random_operation = 'True'
             validation_loop_variable = 'Valid'
         else:
@@ -355,25 +363,40 @@ while quit_yn == 'N':
             random_number = random.randint(1,10)
             #gets 2 random numbers between 1 and 10 to be used to randomly form the mathmatical sum
             number_2 = random_number*difficulty
-            if random_operation == 'True':
-                #looks to see if the user has the computer set to pick a random operation
-                random_number = random.randint(1,4)
-                random_operation_number = random_number
-                if random_operation_number == 1:
-                    system_operation = '+'
-                elif random_operation_number == 2:
-                    #uses a randint command to make a random number between 1 and 4 each number coresponding to a math matical operation
-                    system_operation = '-'
-                elif random_operation_number == 3:
-                    system_operation = '*'
-                elif random_operation_number == 4:
-                    system_operation = '/'
+            no_good_number_yet = 'Yes'
+            while no_good_number_yet == 'Yes':
+                if random_operation == 'True':
+                    #looks to see if the user has the computer set to pick a random operation
+                    random_number = random.randint(1,4)
+                    random_operation_number = random_number
+                    if random_operation_number == 1 and add == 'Yes':
+                        system_operation = '+'
+                        no_good_number_yet = 'No'
+                    elif random_operation_number == 2 and subtract == 'Yes':
+                        #uses a randint command to make a random number between 1 and 4 each number coresponding to a math mathmatcial operation
+                        #also cheks to see if the user has set that operation as one they whant to practice if not it will repeat until it gets a valid operation
+                        system_operation = '-'
+                        no_good_number_yet = 'No'
+                    elif random_operation_number == 3 and times == 'Yes':
+                        system_operation = '*'
+                        no_good_number_yet = 'No'
+                    elif random_operation_number == 4 and divide == 'Yes':
+                        system_operation = '/'
+                        no_good_number_yet = 'No'
+                    elif random_operation_number == 1 and add == 'No':
+                        no_good_number_yet = 'Yes'
+                    elif random_operation_number == 2 and subtract == 'No':
+                        no_good_number_yet = 'Yes'
+                    elif random_operation_number == 3 and times == 'No':
+                        no_good_number_yet = 'Yes'
+                    elif random_operation_number == 4 and divide == 'No':
+                        no_good_number_yet = 'Yes'
+                    else:
+                        print('Invalid value for "random_operation_number"')
+                elif random_operation == 'False':
+                        pass
                 else:
-                    print('Invalid value for "random_operation_number"')
-            elif random_operation == 'False':
-                pass
-            else:
-                validation_loop_variable = 'Not Valid'
+                    validation_loop_variable = 'Not Valid'
                 while validation_loop_variable == 'Not Valid':
                     print('\n!!!\nError:\nvariable issue: "random_operation" variable has not been set to either True of False!\n!!!\nWould you like to try and veiw what the variable has been set to? (WARNING: This runs a risk of crashing the program)')
                     view_error = input('(Y/N): ')
