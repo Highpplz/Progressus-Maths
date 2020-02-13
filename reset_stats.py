@@ -51,7 +51,7 @@ def stat_update():
     no_reset_file_create = open('no_reset.txt','wt')
     no_reset_file_create.write('N')
     no_reset_file_create.close()
-    print('Install compleate!')
+    print('Stat reset compleate!')
 if version_last_ran == 'never':
     stat_update()
     stat_update_YN = 'Y'
