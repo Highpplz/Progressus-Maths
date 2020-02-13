@@ -112,7 +112,7 @@ elif  internal_dependency_number == extenal_dependncy_number:
 else:
     print('Non critical error message:\n the progarm can not verify if your dependencys are out of date please try to re-download and install the prograrm.')
     dependencies_up_to_date = 'IDK'
-dependnency_file.close
+dependnency_file.close()
 lisense_read = open('lisense_read.txt','rt')
 read = lisense_read.readline()
 lisense_read.close()
