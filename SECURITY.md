@@ -5,7 +5,7 @@
 
 | Version            | Supported |
 | ------------------ | --------- |
-| Newest realease    | Yes       |
+| Newest release     | Yes       |
 | All prior versions | No        |
 
 ## Reporting a Vulnerability
