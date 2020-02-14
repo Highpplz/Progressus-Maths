@@ -293,6 +293,7 @@ def logon_system ():
         else: #only runs if the user's input wasn't in the form the progarm requested
             ##print('\nSorry your answer is invalid please answer in the form requested.\n') #tells the user that their answer was in an invalid format
             valid_answer = 'No'
+    ##print('\nWelcome to my maths quiz program ',user_nickname,'\n')
 
 def stat_update():
     total_questions = open('total_questions.txt','wt')
