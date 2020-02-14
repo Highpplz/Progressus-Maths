@@ -89,7 +89,7 @@ def lisense_system():
         any_read_files = 'No'
     else:
         any_read_files= 'Yes'
-    if version_last_ran == '':
+    if version_last_ran == 'New Install':
         ##print('Thank you for installing my maths quiz prograrm.\nPlease contact me if you encounter any bugs or issues but first we need to get some legal stuff out of the way\n.')
         read == 'no'
         new_version = 'Yes'
