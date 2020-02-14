@@ -33,7 +33,7 @@ import random
 #imports random for creating random numbers for the questions and random mathmatcial operation selection
 
 from tkinter import *
-#imports random for the random question and operation selectors
+#imports tkinter for the progarm GUI
 
 import sys
 #imports sys for the 'exit()' command at the end to close the program when the user is done
