@@ -140,7 +140,7 @@ window.state('zoomed')
 welcome_message = Label(GUI,text = 'Welcome to Progressus Maths!')
 welcome_message.pack(side = TOP)
 
-question_entry = Label(GUI,text = question_as_string,'Also please remember to round your answer to the nearest whole number.')
+question_entry = Label(text = question_as_string,'Also please remember to round your answer to the nearest whole number.',GUI)
 
 answer_input = Entry(GUI)
 
