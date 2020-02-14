@@ -66,6 +66,7 @@ else:
 dependnency_file.close()
 
 def lisense_system():
+    validation_loop_variable = 'Not Valid'
     lisense_read = open('lisense_read.txt','rt')
     read = lisense_read.readline()
     lisense_read.close()
