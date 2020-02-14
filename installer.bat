@@ -11,7 +11,3 @@ title Waiting For Python to be Installed
 title Installing pyshortcuts
 pip install pyshortcuts
 title Creating Read Dependencies And Extracting Code
-@file_create.py
-title Creating Score Dependencies
-@reset_stats.py
-@create_shortcut.bat
