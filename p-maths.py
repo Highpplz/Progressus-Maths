@@ -413,8 +413,91 @@ def mathmatcial_operation_selection_system():
     #preps the validation loop for next useage
     print('\nYou have selected :',system_operation,' as your mathmatcial operation of choice to practice')
 
+def question_creation_system():
+    #this loop will run 10 times to give the user a batch of 10 questions before letting them change their settings and see their score
+    while questions_in_bunch < 10:
+                random_number = random.randint(1,10)
+                number_1 = random_number*difficulty
+                random_number = random.randint(1,10)
+                #gets 2 random numbers between 1 and 10 to be used to randomly form the mathmatical sum
+                number_2 = random_number*difficulty
+                if random_operation == 'True':
+                    #looks to see if the user has the computer set to pick a random operation
+                    random_number = random.randint(1,4)
+                    random_operation_number = random_number
+                    if random_operation_number == 1:
+                        system_operation = '+'
+                    elif random_operation_number == 2:
+                        #uses a randint command to make a random number between 1 and 4 each number coresponding to a math matical operation
+                        system_operation = '-'
+                    elif random_operation_number == 3:
+                        system_operation = '*'
+                    elif random_operation_number == 4:
+                        system_operation = '/'
+                    else:
+                        ##print('Invalid value for "random_operation_number"')
+                elif random_operation == 'False':
+                    pass
+                else:
+                    validation_loop_variable = 'Not Valid'
+                    while validation_loop_variable == 'Not Valid':
+                        ##print('\n!!!\nError:\nvariable issue: "random_operation" variable has not been set to either True of False!\n!!!\nWould you like to try and veiw what the variable has been set to? (WARNING: This runs a risk of crashing the program)')
+                        view_error = input('(Y/N): ')
+                        if veiw_error == 'Y':
+                            ##print('The variable "random_operation" is set to: ',random_operation)
+                            ##input('Press any key to continute ...')
+                            validation_loop_variable = 'Valid'
+                        elif veiw_error == 'N':
+                            validation_loop_variable = 'Valid'
+                        else:
+                            validation_loop_variable = 'Not Valid'
+                            ##print('Please read the question carefuly this time!')
+                validation_loop_variable = 'Not Valid'
+                if system_operation == '+':
+                    number_1 = number_1 * 2
+                    number_2 = number_2 * 2
+                    question_as_string = number_1,' + ',number_2,' = '
+                    computer_answer = number_1 + number_2
+                elif system_operation == '-':
+                    question_as_string = number_1,' - ',number_2,' = '
+                    computer_answer = number_1 - number_2
+                elif system_operation == '*':
+                    number_1 = number_1 * 2
+                    number_2 = number_2 * 2
+                    question_as_string = number_1,' X ',number_2,' = '
+                    computer_answer = number_1 * number_2
+                elif system_operation == '/':
+                    while number_one_not_even == 'true':
+                        even_value = number_1 % 2
+                        if even_value == 1:
+                            number_1 = random.randint(1,10)
+                        elif even_value == 0:
+                            number_one_not_even = 'false'
+                        else:
+                            pass
+                            ##print('Minor error:\n Variable "number_1" could not be identifed as even or odd will now assume it is odd')
+                    while number_two_not_even == 'true':
+                        even_value = number_2 % 2
+                        if even_value == 1:
+                            number_2 = random.randint(1,10)
+                        elif even_value == 0:
+                            number_two_not_even = 'false'
+                        else:
+                            pass
+                            ##print('Minor error:\n Variable "number_2" could not be identifed as even or odd will now assume it is odd')
+                    number_1 = number_1 / 2
+                    number_2 = number_2 / 2
+                    question_as_string = number_1,' / ',number_2,' = '
+                    computer_answer = number_1 / number_2
+                else:
+                    pass
+                    ##print('Warning!: Invalid value assigned to the variable "system_operation" is is currently set to: ',system_operation,'\nThis may lead to a crash of the program if the program continutes to run')
+                    ##input('Press enter to continute . . .')
+                question_as_string_compleate_message = question_as_string,'Also please remember to round your answer to the nearest whole number.'
+                ##print(question_as_string,' \n\nRemember if the answer is a decimal to round to the nearest whole number.')
+                ##user_answer = input('Please input your answer here :')
 
-question_as_string_compleate_message = question_as_string,'Also please remember to round your answer to the nearest whole number.'
+
 
 GUI = Tk()
 GUI.title('Progressus Maths')
