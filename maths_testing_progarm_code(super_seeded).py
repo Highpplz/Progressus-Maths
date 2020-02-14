@@ -35,6 +35,9 @@ import random
 import sys
 #imports sys for the 'exit()' command at the end to close the program when the user is done
 #or to close the prograrm if a bypass of the lisense system is detected
+import math
+import time
+#from Tkinter import *
 global user_nickname
 global old_nickmame
 global use_old_nickname
@@ -95,10 +98,83 @@ quit_yn = 'N'
 questions_in_bunch = 0
 total_questions = 0
 random_operation = 'False'
-add = 'No'
-subtract = 'No'
-times = 'No'
-divide = 'No'
+#program = Tk()
+#program.title('Maths Practice Game')
+#label = Label(program, text='Welcome to my maths practice game!')
+#label.grid(column=5,row=1)
+#program.mainloop()
+valid_answer = 'No' #prepares the variable used to enshure the user's answer is of use to the prograrm
+print(' ') #to create a space the the input command doesn't seem to like having '\n' in the string it displays
+while valid_answer == 'No': #will run until the user answers in the Y/N format
+    user_already_has_account = input('Do you already have an account (Y/N) :') #asks the user if they already have an account
+    if user_already_has_account == 'Y': #sees if the user answered yes to the question
+        logon_data = open('logon_data.txt','w+')#opens the file for reading
+        logon_data_list = logon_data.readlines() #puts all data from all lines of the file into a list with each line as its own entry
+        username = input('Please input your username :') #asks the user for their username
+        valid_answer = 'Yes'
+        try:
+            user_login_index_number = logon_data.index(username) #trys to find the index value for the  username
+        except Exception as e: #if it errors it will alow the user to be told before it crashes
+            print('\nYou the account name you put in does not exist leading to this error:',e,'\n try making a new account\n') #tells the user what the error is and what they did to lead to it
+            input('Press enter to close the program') #gets the user to exit the prograrm due to the error future versions might have it fully reset it but that would be a large job
+            exit() #closes the progarm when run
+        user_password = logon_data[user_login_index_number + 1] #as the user's password is below their username in the file it can be acessed by adding one to index value of the username
+        password_correct = 'false'
+        #preps the varible above and below this line for the loop
+        trys = 0
+        while password_correct == 'false': #gives the user 3 tries to get their password correct
+            user_input_password = input('Please input your password.')
+            trys = trys + 1
+            if user_input_password == user_password: #only runs the code if the user hasn't ran out of trys and they have gave the system the correct password
+                print('\nYour password is correct\n')
+                user_nickname = username
+            else:
+                print('\nYour password is wroung you have now used :',trys,'out of 3 trys\n') #tells the user their answer is wroung and how many attempts they have left
+                if trys >= 3: #if the user is on their 3rd try and get it wroung they will be told that and the prograrm will close
+                    print('As you have now input the wroung password 3 times the prograrm will now lock for 5 mins.\n')
+                    sleep(300)
+    elif user_already_has_account == 'N': #only runs if the user says they don't have an account this system will allow the user to create an account
+        print('\nAs you do not yet have an logon for this prograrm please create one following the instructions.\nIf you answered no to the queston by mistake just close the program and reopen it and answer again.\n') #displays a message to tell the user that they need to make a logon and also what to do if they selected this setting by mistake.
+        new_username = input('Please select a name for your account :')
+        account_name_taken = 'Yes'
+        valid_answer = 'Yes'
+        try:
+            test = username_data.index(new_username)
+        except Exception as e:
+            account_name_taken = 'No'
+        if account_name_taken == 'Yes':
+            print('\nSorry this user account alredy exists the progarm will now close.\n')
+            input('Press enter to close the progarm :')
+            exit()
+        print('\nYour account name is not yet taken\n')
+        valid_password = 'No'
+        while valid_password == 'No':
+            new_password = input('Please set a memrobale password for your account :')
+            print('Are you shure you whant to set : ',new_password, 'as your password?')
+            password_confirmation = input('(Y/N)')
+            if password_confirmation == 'Y':
+                valid_password = 'Yes'
+        print('Creating account...\n')
+        number_of_needed_lines_file = open('number_of_needed_lines.txt','rt')
+        number_of_needed_lines = number_of_needed_lines_file.readline()
+        number_of_needed_lines = int(number_of_needed_lines)
+        number_of_needed_lines_file.close()
+        username_data = open('logon_data.txt','a+')
+        username_data.write(new_username+"\n")
+        username_data.write(new_password+"\n")
+        #appends the user's new account name and password to the document for later refrance
+        username_data.close()
+        times_ran = 0
+        while number_of_needed_lines > times_ran:
+            username_data = open('logon_data.txt','a+')
+            username_data.write(' \n')
+            username_data.close()
+            times_ran = times_ran + 1
+        print(times_ran,' out of ',number_of_needed_lines,'of blank space has been reseved for your account\n')
+        print('\nAccount has been created with the settings of :\n',new_username,'as your usename and ',new_password,'as your password.\nIf there is a mistake please restart the progarm and use the delate account option to remove your account before then later recreating it.')#tells the user the settings of their new account as well as instuctions for if there is a mistake in the settings.
+    else: #only runs if the user's input wasn't in the form the progarm requested
+        print('\nSorry your answer is invalid please answer in the form requested.\n') #tells the user that their answer was in an invalid format
+        valid_answer = 'No'
 validation_loop_variable = 'Not Valid'
 dependnency_file = open('dependency_number.txt','rt')
 extenal_dependncy_number = dependnency_file.readline()
@@ -110,7 +186,7 @@ elif  internal_dependency_number == extenal_dependncy_number:
 else:
     print('Non critical error message:\n the progarm can not verify if your dependencys are out of date please try to re-download and install the prograrm.')
     dependencies_up_to_date = 'IDK'
-dependnency_file.close()
+dependnency_file.close
 lisense_read = open('lisense_read.txt','rt')
 read = lisense_read.readline()
 lisense_read.close()
@@ -263,36 +339,36 @@ elif dependencies_up_to_date == 'No' and new_install == 'Yes':
 version_file_write = open('version_last_ran.txt','wt')
 version_file_write.write(current_version)
 version_file_write.close()
-nickname_file = open('user_nicknames.txt','rt')
+#nickname_file = open('user_nicknames.txt','rt')
 #looks to see if the user has used the file before to be able to offer that their nickname is automaticly set to their most recent one
-old_nickname = nickname_file.readline()
-if old_nickname != '':
+#old_nickname = nickname_file.readline()
+#if old_nickname != '':
     #if the user has used the program before it will offer the user the option to use their old nickname or create a new one
-    while validation_loop_variable == 'Not Valid':
-        nickname_prompt = 'In the past you have used ',old_nickname,' as your nickname would you like to create a new nickname? (Y/N) :'
-        print('In the past you have used ',old_nickname,' as your nickname would you like to create a new nickname?')
-        use_old_nickname = input('(Y/N) :')
-        if use_old_nickname == 'N' or use_old_nickname == 'n':
-            validation_loop_variable = 'Valid'
-            user_nickname = old_nickname
-        elif use_old_nickname == 'Y' or use_old_nickname == 'y':
-            validation_loop_variable = 'Valid'
-            user_nickname = input('Create a new nickname. :\n')
-            nickname_file.close()
-            nickname_file = open('user_nicknames.txt','wt')
-            nickname_file.write(user_nickname)
+    #while validation_loop_variable == 'Not Valid':
+        #nickname_prompt = 'In the past you have used ',old_nickname,' as your nickname would you like to create a new nickname? (Y/N) :'
+        #print('In the past you have used ',old_nickname,' as your nickname would you like to create a new nickname?')
+        #use_old_nickname = input('(Y/N) :')
+        #if use_old_nickname == 'N' or use_old_nickname == 'n':
+            #validation_loop_variable = 'Valid'
+            #user_nickname = old_nickname
+        #elif use_old_nickname == 'Y' or use_old_nickname == 'y':
+            #validation_loop_variable = 'Valid'
+            #user_nickname = input('Create a new nickname. :\n')
+            #nickname_file.close()
+            #nickname_file = open('user_nicknames.txt','wt')
+            #nickname_file.write(user_nickname)
             #writes new nickname to the file for future use
-            nickname_file.close()
-        else:
-            print('Please answer Y or N to the question')
+            #nickname_file.close()
+        #else:
+            #print('Please answer Y or N to the question')
             #enshures the user answers the question in a way that the computer can use the user's reponse
-else:
-    user_nickname = input('Create a nickname:\n')
-    nickname_file.close()
-    nickname_file = open('user_nicknames.txt','wt')
+#else:
+    #user_nickname = input('Create a nickname:\n')
+    #nickname_file.close()
+    #nickname_file = open('user_nicknames.txt','wt')
     #if no old nickname can be found it will ask the user to create a new nickname
-    nickname_file.write(user_nickname)
-    nickname_file.close()
+    #nickname_file.write(user_nickname)
+    #nickname_file.close()
 print('\nWelcome to my maths quiz program ',user_nickname,'\n')
 #the while loop is as once the intital setup has been run the main bluck of the code just has to be run in a cycle
 while quit_yn == 'N':
@@ -317,10 +393,6 @@ while quit_yn == 'N':
             validation_loop_variable = 'Valid'
         elif user_operation_input == '?':
             system_operation = 'Random'
-            add = 'Yes'
-            subtract = 'Yes'
-            times = 'Yes'
-            divide = 'Yes'
             random_operation = 'True'
             validation_loop_variable = 'Valid'
         else:
@@ -357,40 +429,25 @@ while quit_yn == 'N':
             random_number = random.randint(1,10)
             #gets 2 random numbers between 1 and 10 to be used to randomly form the mathmatical sum
             number_2 = random_number*difficulty
-            no_good_number_yet = 'Yes'
-            while no_good_number_yet == 'Yes':
-                if random_operation == 'True':
-                    #looks to see if the user has the computer set to pick a random operation
-                    random_number = random.randint(1,4)
-                    random_operation_number = random_number
-                    if random_operation_number == 1 and add == 'Yes':
-                        system_operation = '+'
-                        no_good_number_yet = 'No'
-                    elif random_operation_number == 2 and subtract == 'Yes':
-                        #uses a randint command to make a random number between 1 and 4 each number coresponding to a math mathmatcial operation
-                        #also cheks to see if the user has set that operation as one they whant to practice if not it will repeat until it gets a valid operation
-                        system_operation = '-'
-                        no_good_number_yet = 'No'
-                    elif random_operation_number == 3 and times == 'Yes':
-                        system_operation = '*'
-                        no_good_number_yet = 'No'
-                    elif random_operation_number == 4 and divide == 'Yes':
-                        system_operation = '/'
-                        no_good_number_yet = 'No'
-                    elif random_operation_number == 1 and add == 'No':
-                        no_good_number_yet = 'Yes'
-                    elif random_operation_number == 2 and subtract == 'No':
-                        no_good_number_yet = 'Yes'
-                    elif random_operation_number == 3 and times == 'No':
-                        no_good_number_yet = 'Yes'
-                    elif random_operation_number == 4 and divide == 'No':
-                        no_good_number_yet = 'Yes'
-                    else:
-                        print('Invalid value for "random_operation_number"')
-                elif random_operation == 'False':
-                        pass
+            if random_operation == 'True':
+                #looks to see if the user has the computer set to pick a random operation
+                random_number = random.randint(1,4)
+                random_operation_number = random_number
+                if random_operation_number == 1:
+                    system_operation = '+'
+                elif random_operation_number == 2:
+                    #uses a randint command to make a random number between 1 and 4 each number coresponding to a math matical operation
+                    system_operation = '-'
+                elif random_operation_number == 3:
+                    system_operation = '*'
+                elif random_operation_number == 4:
+                    system_operation = '/'
                 else:
-                    validation_loop_variable = 'Not Valid'
+                    print('Invalid value for "random_operation_number"')
+            elif random_operation == 'False':
+                pass
+            else:
+                validation_loop_variable = 'Not Valid'
                 while validation_loop_variable == 'Not Valid':
                     print('\n!!!\nError:\nvariable issue: "random_operation" variable has not been set to either True of False!\n!!!\nWould you like to try and veiw what the variable has been set to? (WARNING: This runs a risk of crashing the program)')
                     view_error = input('(Y/N): ')
