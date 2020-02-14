@@ -65,6 +65,159 @@ else:
     dependencies_up_to_date = 'IDK'
 dependnency_file.close()
 
+def lisense_system():
+    lisense_read = open('lisense_read.txt','rt')
+    read = lisense_read.readline()
+    lisense_read.close()
+    version_last_ran_file = open('version_last_ran.txt','rt')
+    version_last_ran = version_last_ran_file.readline()
+    version_last_ran_file.close()
+    disclaimer_read_file = open('disclaimer_read.txt','rt')
+    disclaimer_read = disclaimer_read_file.readline()
+    disclaimer_read_file.close()
+    changelog_latest_read_file = open('changelog_latest_read.txt','rt')
+    changelog_latest_read = changelog_latest_read_file.readline()
+    changelog_latest_read_file.close()
+    credits_read_file = open('credits_read.txt','rt')
+    credits_read = credits_read_file.readline()
+    credits_read_file.close()
+    bugfinders_read_file = open('bugfinders_read.txt','rt')
+    bugfinders_read = bugfinders_read_file.readline()
+    bugfinders_read_file.close
+    if disclaimer_read != 'Yes' or credits_read != 'Yes' or bugfinders_read != 'Yes' or changelog_latest_read != 'Yes' or new_account == 'No':
+        any_read_files = 'No'
+    else:
+        any_read_files= 'Yes'
+    if version_last_ran == '':
+        print('Thank you for installing my maths quiz prograrm.\nPlease contact me if you encounter any bugs or issues but first we need to get some legal stuff out of the way\n.')
+        read == 'no'
+        new_version = 'Yes'
+        new_install = 'Yes'
+    elif version_last_ran != current_version:
+        print('Thank you for updating the software!\nWe now need to re varifiy the lisense as there may have been changes to it please enshure you re-read it!\nOnce that is done we will show all updated documentation for the program including the change log.')
+        read = 'no'
+        new_version = 'Yes'
+        new_install = 'No'
+    elif version_last_ran == current_version:
+        new_install = 'No'
+        new_version = 'No'
+    else:
+        print('\nNon crititcal error message: Version not verified as a precution please contact the dev team, automaticly reseting lisence verification.\n')
+        read = 'no'
+        any_read_files == 'No'
+    if read != 'Yes' or new_version == 'Yes' or new_install == 'Yes' or any_read_files == 'No' or new_account == 'Yes':
+        open_file_internaly = input('Would you like to read the lisense file in program?\n(Y/N) :')
+        if open_file_internaly == 'Y':
+            lisense = open('LISENCE.md','rt')
+            print (lisense.readlines())
+        elif open_file_internaly == 'N':
+            print('Please find the file "copyright and lisense.txt" in the game install directory and read it or restart the progarm and have it display the lisense internaly.')
+        else:
+            print('Attempted bypass of lisense term accepting system detected, now closing prograrm!')
+            input('Press enter to exit')
+            exit()
+        print('Do you accept the lisense terms?')
+        accept = input('(Y/N)')
+        if accept == 'N':
+            print('You have denided the terms you have 24 hrs from the time that you downloaded the software to remove all traces of it from your computer (or any storage devices owned/managed by you) or accept!')
+            input('Press enter to exit')
+            exit()
+        elif accept == 'Y':
+            accept = 'Yes'
+            print('Thank you for accepting the lisense terms!')
+            lisense_read_write = open('lisense_read.txt','wt')
+            lisense_read_write.write('Yes')
+            lisense_read_write.close()
+        else:
+            print('Attempted bypass of lisense term accepting system detected, now closing prograrm!')
+            input('Press enter to exit')
+            exit()
+    elif read == 'no' or read == 'No' or read == 'NO':
+        print('Attempted bypass of lisense system detected! Will now close the program!')
+        input('Press enter to close')
+        exit()
+    if disclaimer_read != 'Yes' or new_version == 'Yes' or new_install == 'Yes' or disclaimer_read == 'no' or disclaimer_read == 'No' or disclaimer_read == 'NO' or disclaimer_read == 'nO'or new_account == 'Yes':
+        disclaimer_file = open('disclaimer.txt','rt')
+        disclaimer_data = disclaimer_file.readlines()
+        disclaimer_file.close()
+        print(disclaimer_data)
+        disclaimer_accept = input('Do you accept that you have read and understand this disclaimer? (Y/N) :')
+        if disclaimer_accept == 'Y':
+            print('Thank you for accepting the disclaimer')
+            disclaimer_read_file_write = open('disclaimer_read.txt','wt')
+            disclaimer_read_file_write.write('Yes')
+            disclaimer_read_file_write.close()
+        elif disclaimer_accept == 'N':
+            print('You have declined the disclaimer policy you may not use this software until you accept it.\nNow closing program')
+            disclaimer_read_file_write = open('disclaimer_read.txt','wt')
+            disclaimer_read_file_write.write('no')
+            disclaimer_read_file_write.close()
+            input('Press enter to close')
+            exit()
+        else:
+            print('Attempt to bypass disclaimer accepance system detected now closing prograrm!')
+            input('Press enter to close')
+            exit()
+    if new_version == 'Yes' or credits_read == 'No' or any_read_files == 'No' or new_account == 'Yes':
+        print('\nWould you like to veiw the credits for the prograrm?')
+        see_credits = input('(Y/N):')
+        if see_credits == 'Y':
+            credits_file = open('credits.txt','rt')
+            credits_ = credits_file.readline()
+            credits_file.close()
+            print(credits_)
+            credits_record_write = open('credits_read.txt','wt')
+            credits_record_write.write('Yes')
+            credits_record_write.close()
+        elif see_credits == 'N':
+            pass
+        else:
+            pass
+        print('\nWould you like to see the bug finder list?')
+        see_bug_finders = input('(Y/N):')
+        if see_bug_finders == 'Y' or bugfinders_read != 'Yes':
+            bug_finder_file = open('Bugfinders.txt','rt')
+            bug_finder_data = bug_finder_file.readline()
+            print(bug_finder_data)
+            bug_finder_record_write = open('bugfinders_read.txt','wt')
+            bug_finder_record_write.write('Yes')
+            bug_finder_record_write.close()
+        elif see_bug_finders == 'N':
+            pass
+        else:
+            pass
+        print('\nWould you like to see the full change log?')
+        see_full_changelog = input('(Y/N):')
+        if see_full_changelog == 'Y':
+            latest_changelog_record_write = open('changelog_latest_read.txt','wt')
+            latest_changelog_record_write.write('Yes')
+            latest_changelog_record_write.close()
+            changelog_file = open('changelog.txt','rt')
+            changelog_data = changelog_file.readline()
+            print(changelog_data)
+        elif see_full_changelog == 'N' or changelog_latest_read != 'Yes':
+            print('\nWould you like to see the changes in the latest version?')
+            see_changelog_latest = input('(Y/N):')
+            if see_changeglog_latest == 'Y':
+                latest_changelog_file = open('changelog_latest','rt')
+                latest_changelog_data = latest_changelog_file.readline()
+                print(latest_changelog_data)
+                latest_changelog_record_write = open('changelog_latest_read.txt','wt')
+                latest_changelog_record_write.write('Yes')
+                latest_changelog_record_write.close()
+            elif see_changelog_latest == 'N':
+                pass
+            else:
+                pass
+        else:
+            pass
+    if dependencies_up_to_date == 'No' and new_version == 'Yes' and new_install == 'No':
+        print('Your dependencies seem to be older than the version of code you are running./nPlease always fully unzip all files in the zip folder for an update.')
+    elif dependencies_up_to_date == 'No' and new_install == 'Yes':
+        print('It seems all the .txt files have not been fully un-ziped when you installed this prograrm please try and re-un-zip this prograrm of you are having issues please contact a member of the dev team')
+    version_file_write = open('version_last_ran.txt','wt')
+    version_file_write.write(current_version)
+    version_file_write.close()
 
 def logon_system ():
     valid_answer = 'No' #prepares the variable used to enshure the user's answer is of use to the prograrm
