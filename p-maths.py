@@ -139,7 +139,7 @@ question_as_string_compleate_message = 'Place holder message'
 
 GUI = Tk()
 GUI.title('Progressus Maths')
-window.state('zoomed')
+GUI.state('zoomed')
 
 welcome_message = Label(GUI,text = 'Welcome to Progressus Maths!')
 welcome_message.pack(side = TOP)
