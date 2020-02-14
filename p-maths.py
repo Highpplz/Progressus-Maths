@@ -359,6 +359,34 @@ def reset_stats_system ():
             valid_input = 'false'
             ##print('\nPlease answer in the Y/N format.\n')
 
+def difficlty_setting_system():
+    validation_loop_variable = 'Not Valid'
+    while validation_loop_variable == 'Not Valid':
+        is_int = 'True'
+        ##difficulty = input('\nPlease select a number between 1 and 10 to be a diffiulcty (1 being the easyest and 10 being the hardest):')
+        #to avoid a crash the code will first test to see if the input is an interger before trying to convert therefore accomodating for user error or attempts to crash the program
+        try:
+           difficulty = int(difficulty)
+        except Exception as e:
+            ##print('Your did not input in the correct format leading to this error :',e)
+            is_int = 'False'
+        if is_int == 'True':
+            if difficulty > 10 or difficulty < 0:
+                ##print('\nInvalid input please only enter a number between 1 and 10 next time.\n')
+                #enshures yet again that the user's input will be of use to the computer
+                validation_loop_variable = 'Not Valid'
+            else:
+                ##print('\nYou have selected a difficulty of: ',difficulty,'\n')
+                validation_loop_variable = 'Valid'
+        else:
+            pass
+            #this runs if the input isn't an interger and therefore can't be converted
+            ##print('\nPlease input only a number (so no letters puntuation etc)')
+
+def mathmatcial_operation_selection_system():
+
+
+
 question_as_string_compleate_message = question_as_string,'Also please remember to round your answer to the nearest whole number.'
 
 GUI = Tk()
