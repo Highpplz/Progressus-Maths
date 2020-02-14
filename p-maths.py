@@ -507,20 +507,19 @@ def question_scoring_system():
     if is_int == 'True':
         user_answer = int(user_answer)
         if user_answer == computer_answer:
-            print('\nYour answer was correct! ',user_nickname,'+1 Point!\n')
+            ##print('\nYour answer was correct! ',user_nickname,'+1 Point!\n')
             score = score + 1
             #adds score to both the session score and the question bunch score
-            score_this_bunch = score_this_bunch + 1
             #bunch refers to a batch of 10 questions the computer generates for the user
         else:
-            print('\nYour answer was wroung the correct answer was: ',computer_answer,' Better luck next time',user_nickname)
-            total_quesions = total_questions + 1
+            pass
+            ##print('\nYour answer was wroung the correct answer was: ',computer_answer,' Better luck next time',user_nickname)
             #tells the user their answer was wroung and informs them of the corecct answer while nor adding or deducting...
             #points from them but still stating the question has being wroung for the user to see at the end of that question bunch
     else:
-        print('\nYou did not input an interger into the progarm (defulting to wroung answer)')
-        print('\nYour answer was wroung the correct answer was: ',computer_answer,' Better luck next time',user_nickname)
-        total_quesions = total_questions + 1
+        pass
+        ##print('\nYou did not input an interger into the progarm (defulting to wroung answer)')
+        ##print('\nYour answer was wroung the correct answer was: ',computer_answer,' Better luck next time',user_nickname
     total_questions = total_questions + 1
     questions_in_bunch = questions_in_bunch + 1
     percentage = score_this_bunch / 10
