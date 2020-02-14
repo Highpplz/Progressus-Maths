@@ -385,7 +385,33 @@ def difficlty_setting_system():
             ##print('\nPlease input only a number (so no letters puntuation etc)')
 
 def mathmatcial_operation_selection_system():
-
+    validation_loop_variable = 'Not Valid'
+    while validation_loop_variable == 'Not Valid':
+        #lets the user chose to practice a specific mathmatical operation or to have the computer randomly chose one
+        ##user_operation_input=input('Please enter a mathmatical operation symbol to select that to practice or you can enter: "?" to have one randomly selected each question:\n')
+        if user_operation_input == '+':
+            system_operation = '+'
+            validation_loop_variable = 'Valid'
+            #all this if-elif-else statement is to convert the user's input of the operation symbol into an interger from a string for the computer to use at a later point in the code
+        elif user_operation_input == '-':
+            system_operation = '-'
+            validation_loop_variable = 'Valid'
+        elif user_operation_input == '*' or user_operation_input == 'x' or user_operation_input == 'X':
+            system_operation = '*'
+            validation_loop_variable = 'Valid'
+        elif user_operation_input == '/':
+            system_operation = '/'
+            validation_loop_variable = 'Valid'
+        elif user_operation_input == '?':
+            system_operation = 'Random'
+            random_operation = 'True'
+            validation_loop_variable = 'Valid'
+        else:
+            ##print('Invalid input!\nPlease re-read the question.')
+            validation_loop_variable = 'Not Valid'
+    validation_loop_variable = 'Not Valid'
+    #preps the validation loop for next useage
+    print('\nYou have selected :',system_operation,' as your mathmatcial operation of choice to practice')
 
 
 question_as_string_compleate_message = question_as_string,'Also please remember to round your answer to the nearest whole number.'
