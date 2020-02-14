@@ -133,6 +133,10 @@ def reset_stats_system ():
             valid_input = 'false'
             ##print('\nPlease answer in the Y/N format.\n')
 
+#question_as_string_compleate_message = question_as_string,'Also please remember to round your answer to the nearest whole number.'
+
+question_as_string_compleate_message = 'Place holder message'
+
 GUI = Tk()
 GUI.title('Progressus Maths')
 window.state('zoomed')
@@ -140,7 +144,7 @@ window.state('zoomed')
 welcome_message = Label(GUI,text = 'Welcome to Progressus Maths!')
 welcome_message.pack(side = TOP)
 
-question_entry = Label(text = question_as_string,'Also please remember to round your answer to the nearest whole number.',GUI)
+question_entry = Label(GUI,text = question_as_string_compleate_message)
 
 answer_input = Entry(GUI)
 
