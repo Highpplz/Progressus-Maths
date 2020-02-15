@@ -250,8 +250,10 @@ def lisense_system():
         else:
             pass
     if dependencies_up_to_date == 'No' and new_version == 'Yes' and new_install == 'No':
+        pass
         ##print('Your dependencies seem to be older than the version of code you are running./nPlease always fully unzip all files in the zip folder for an update.')
     elif dependencies_up_to_date == 'No' and new_install == 'Yes':
+        pass
         ##print('It seems all the .txt files have not been fully un-ziped when you installed this prograrm please try and re-un-zip this prograrm of you are having issues please contact a member of the dev team')
     version_file_write = open('version_last_ran.txt','wt')
     version_file_write.write(current_version)
@@ -471,6 +473,7 @@ def question_creation_system():
                     elif random_operation_number == 4:
                         system_operation = '/'
                     else:
+                        pass
                         ##print('Invalid value for "random_operation_number"')
                 elif random_operation == 'False':
                     pass
