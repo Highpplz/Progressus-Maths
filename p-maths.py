@@ -564,6 +564,8 @@ def question_scoring_system():
     questions_in_bunch = questions_in_bunch + 1
     percentage = score_this_bunch / 10
     precentage = percentage * 100
+    if questions_in_bunch == 10:
+        bunch_ending_system()
 
 def bunch_ending_system():
     #calulates the user's percentage for the last 10 questions and tells the user that as well as their score over the same 10 questions
