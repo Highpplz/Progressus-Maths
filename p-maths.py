@@ -39,6 +39,42 @@ import sys
 #imports sys for the 'exit()' command at the end to close the program when the user is done
 #or to close the prograrm if a bypass of the lisense system is detected
 
+def installer():
+    reset_stats_file = open('reset_stats_version.txt','w+')
+    reset_stats_file.write('never')
+    reset_stats_file.close()
+    lisense_file_read = open('lisense_read.txt','w+')
+    lisense_file_read.write('No')
+    lisense_file_read.close()
+    credits_file_read = open('credits_read.txt','w+')
+    credits_file_read.write('No')
+    credits_file_read.close()
+    disclaimer_read_file = open('disclaimer_read.txt','w+')
+    disclaimer_read_file.write('No')
+    disclaimer_read_file.close()
+    version_last_ran_file_read = open('version_last_ran.txt','w+')
+    version_last_ran_file_read.write('never')
+    version_last_ran_file_read.close()
+    changelog_latest_read = open('changelog_latest_read.txt','w+')
+    changelog_latest_read.write('No')
+    changelog_latest_read.close()
+    bugfinders_read_file = open('bugfinders_read.txt','w+')
+    bugfinders_read_file.write('No')
+    bugfinders_read_file.close()
+    number_of_needed_lines_file = open('number_of_needed_lines.txt','w+')
+    number_of_needed_lines_file.write(15)
+    number_of_needed_lines_file.close()
+    logon_data_file = open('logon_data.txt','w+')
+    logon_data_file.write('#header')
+    logon_data_file.close()
+
+version_last_ran_file = open('version_last_ran.txt','rt')
+version_last_ran_start_of_file = version_last_ran_file.readline()
+version_last_ran_file.close()
+if version_last_ran_start_of_file == 'New Install':
+    new_install == 'Yes'
+    installer()
+
 internal_dependency_number = '3'
 number_one_not_even = 'true'
 number_two_not_even = 'true'
@@ -89,8 +125,8 @@ def lisense_system():
         any_read_files = 'No'
     else:
         any_read_files= 'Yes'
-    if version_last_ran == 'New Install':
-        ##print('Thank you for installing my maths quiz prograrm.\nPlease contact me if you encounter any bugs or issues but first we need to get some legal stuff out of the way\n.')
+    if new_install == 'Yes':
+        ##print('Thank you for installing Progressus Maths.\nPlease contact me if you encounter any bugs or issues but first we need to get some legal stuff out of the way\n.')
         read == 'no'
         new_version = 'Yes'
         new_install = 'Yes'
@@ -578,6 +614,9 @@ def bunch_ending_system():
         ##input('Press enter to exit')
         #uses an input so the program waits before closing to give the user time to acknowlege the messages that have been sent before closing
         exit()
+
+if new_install == 'Yes':
+    reset_stats_system()
 
 GUI = Tk()
 GUI.title('Progressus Maths')

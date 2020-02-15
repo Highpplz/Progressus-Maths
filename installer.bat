@@ -10,4 +10,7 @@ title Waiting For Python to be Installed
 @python-3.8.1-amd64-webinstall.exe
 title Installing pyshortcuts
 pip install pyshortcuts
-title Creating Read Dependencies And Extracting Code
+title Extracting Code
+@code_extractor.py
+tile Launching Game
+@c:\Progressus-Maths\startgame.bat
