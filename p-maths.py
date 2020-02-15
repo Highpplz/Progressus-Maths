@@ -537,6 +537,7 @@ def question_creation_system():
                 ##user_answer = input('Please input your answer here :')
 
 def question_scoring_system():
+    user_anwer = answer_input.get()
     is_int = 'True'
     try:
         user_answer = int(user_answer)
@@ -626,10 +627,16 @@ GUI.title('Progressus Maths')
 GUI.state('zoomed')
 GUI.iconbitmap('images/P-maths.ico')
 
-welcome_message = Label(GUI,text = 'Welcome to Progressus Maths!')
+Exit_button = Button(GUI, text = '', state = DISABLED command = GUI.quit)
+
+answer_message_box = Label(GUI, text = '')
+
+welcome_message = Label(GUI, text = 'Welcome to Progressus Maths!')
 welcome_message.pack(side = TOP)
 
-question_entry = Label(GUI,text = question_as_string_compleate_message)
+answer_confirmation_button = Button(GUI, text = 'Press this to comfirm your answer', command = question_scoring_system)
+
+question_entry = Label(GUI, text = question_as_string_compleate_message)
 
 answer_input = Entry(GUI)
 
