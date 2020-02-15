@@ -604,16 +604,16 @@ def bunch_ending_system():
                 ##print('Your score and questions done have been sucessfully saved!')
                 #tells the user they have been saved then exits the loop
                 validation_loop_variable = 'Valid'
+                ##print('The progarm has finsished running.')
+                ##input('Press enter to exit')
+                #uses an input so the program waits before closing to give the user time to acknowlege the messages that have been sent before closing
+                exit()
             elif quit_yn == 'N':
                 validation_loop_variable = 'Valid'
                 ##print('Thank you for choosing to continute to play!\n')
             else:
                 ##print('Please use the (Y/N) format for your answer')
                 validation_loop_variable = 'Not Valid'
-        ##print('The progarm has finsished running.')
-        ##input('Press enter to exit')
-        #uses an input so the program waits before closing to give the user time to acknowlege the messages that have been sent before closing
-        exit()
 
 if new_install == 'Yes':
     reset_stats_system()
