@@ -40,35 +40,35 @@ import sys
 #or to close the prograrm if a bypass of the lisense system is detected
 
 def installer():
-    reset_stats_file = open('reset_stats_version.txt','w+')
+    reset_stats_file = open('dependency_files/reset_stats_version.txt','w+')
     reset_stats_file.write('never')
     reset_stats_file.close()
-    lisense_file_read = open('lisense_read.txt','w+')
+    lisense_file_read = open('dependency_files/lisense_read.txt','w+')
     lisense_file_read.write('No')
     lisense_file_read.close()
-    credits_file_read = open('credits_read.txt','w+')
+    credits_file_read = open('dependency_files/credits_read.txt','w+')
     credits_file_read.write('No')
     credits_file_read.close()
-    disclaimer_read_file = open('disclaimer_read.txt','w+')
+    disclaimer_read_file = open('dependency_files/disclaimer_read.txt','w+')
     disclaimer_read_file.write('No')
     disclaimer_read_file.close()
-    version_last_ran_file_read = open('version_last_ran.txt','w+')
+    version_last_ran_file_read = open('dependency_files/version_last_ran.txt','w+')
     version_last_ran_file_read.write('never')
     version_last_ran_file_read.close()
-    changelog_latest_read = open('changelog_latest_read.txt','w+')
+    changelog_latest_read = open('dependency_files/changelog_latest_read.txt','w+')
     changelog_latest_read.write('No')
     changelog_latest_read.close()
-    bugfinders_read_file = open('bugfinders_read.txt','w+')
+    bugfinders_read_file = open('dependency_files/bugfinders_read.txt','w+')
     bugfinders_read_file.write('No')
     bugfinders_read_file.close()
-    number_of_needed_lines_file = open('number_of_needed_lines.txt','w+')
+    number_of_needed_lines_file = open('dependency_files/number_of_needed_lines.txt','w+')
     number_of_needed_lines_file.write(15)
     number_of_needed_lines_file.close()
-    logon_data_file = open('logon_data.txt','w+')
+    logon_data_file = open('dependency_files/logon_data.txt','w+')
     logon_data_file.write('#header')
     logon_data_file.close()
 
-version_last_ran_file = open('version_last_ran.txt','rt')
+version_last_ran_file = open('dependency_files/version_last_ran.txt','rt')
 version_last_ran_start_of_file = version_last_ran_file.readline()
 version_last_ran_file.close()
 if version_last_ran_start_of_file == 'New Install':
@@ -89,7 +89,7 @@ subtract = 'No'
 times = 'No'
 divide = 'No'
 validation_loop_variable = 'Not Valid'
-dependnency_file = open('dependency_number.txt','rt')
+dependnency_file = open('dependency_files/dependency_number.txt','rt')
 extenal_dependncy_number = dependnency_file.readline()
 if internal_dependency_number != extenal_dependncy_number:
     ##print('Your dependency files are out of date or corrupted please try to contact a member of the dev team or re-download the prograrm as the zip file and fully re-install it.')
@@ -103,22 +103,22 @@ dependnency_file.close()
 
 def lisense_system():
     validation_loop_variable = 'Not Valid'
-    lisense_read = open('lisense_read.txt','rt')
+    lisense_read = open('dependency_files/lisense_read.txt','rt')
     read = lisense_read.readline()
     lisense_read.close()
-    version_last_ran_file = open('version_last_ran.txt','rt')
+    version_last_ran_file = open('dependency_files/version_last_ran.txt','rt')
     version_last_ran = version_last_ran_file.readline()
     version_last_ran_file.close()
-    disclaimer_read_file = open('disclaimer_read.txt','rt')
+    disclaimer_read_file = open('dependency_files/disclaimer_read.txt','rt')
     disclaimer_read = disclaimer_read_file.readline()
     disclaimer_read_file.close()
-    changelog_latest_read_file = open('changelog_latest_read.txt','rt')
+    changelog_latest_read_file = open('dependency_files/changelog_latest_read.txt','rt')
     changelog_latest_read = changelog_latest_read_file.readline()
     changelog_latest_read_file.close()
     credits_read_file = open('credits_read.txt','rt')
     credits_read = credits_read_file.readline()
     credits_read_file.close()
-    bugfinders_read_file = open('bugfinders_read.txt','rt')
+    bugfinders_read_file = open('dependency_files/bugfinders_read.txt','rt')
     bugfinders_read = bugfinders_read_file.readline()
     bugfinders_read_file.close()
     if disclaimer_read != 'Yes' or credits_read != 'Yes' or bugfinders_read != 'Yes' or changelog_latest_read != 'Yes' or new_account == 'No':
@@ -145,7 +145,7 @@ def lisense_system():
     if read != 'Yes' or new_version == 'Yes' or new_install == 'Yes' or any_read_files == 'No' or new_account == 'Yes':
         ##open_file_internaly = input('Would you like to read the lisense file in program?\n(Y/N) :')
         if open_file_internaly == 'Y':
-            lisense = open('lisense(.txt_version).txt','rt')
+            lisense = open('dependency_files/lisense(.txt_version).txt','rt')
             ##print (lisense.readlines())
         elif open_file_internaly == 'N':
             pass
@@ -163,7 +163,7 @@ def lisense_system():
         elif accept == 'Y':
             accept = 'Yes'
             ##print('Thank you for accepting the lisense terms!')
-            lisense_read_write = open('lisense_read.txt','wt')
+            lisense_read_write = open('dependency_files/lisense_read.txt','wt')
             lisense_read_write.write('Yes')
             lisense_read_write.close()
         else:
@@ -175,19 +175,19 @@ def lisense_system():
         ##input('Press enter to close')
         exit()
     if disclaimer_read != 'Yes' or new_version == 'Yes' or new_install == 'Yes' or disclaimer_read == 'no' or disclaimer_read == 'No' or disclaimer_read == 'NO' or disclaimer_read == 'nO'or new_account == 'Yes':
-        disclaimer_file = open('disclaimer.txt','rt')
+        disclaimer_file = open('dependency_files/disclaimer.txt','rt')
         disclaimer_data = disclaimer_file.readlines()
         disclaimer_file.close()
         print(disclaimer_data)
         ##disclaimer_accept = input('Do you accept that you have read and understand this disclaimer? (Y/N) :')
         if disclaimer_accept == 'Y':
             print('Thank you for accepting the disclaimer')
-            disclaimer_read_file_write = open('disclaimer_read.txt','wt')
+            disclaimer_read_file_write = open('dependency_files/disclaimer_read.txt','wt')
             disclaimer_read_file_write.write('Yes')
             disclaimer_read_file_write.close()
         elif disclaimer_accept == 'N':
             print('You have declined the disclaimer policy you may not use this software until you accept it.\nNow closing program')
-            disclaimer_read_file_write = open('disclaimer_read.txt','wt')
+            disclaimer_read_file_write = open('dependency_files/disclaimer_read.txt','wt')
             disclaimer_read_file_write.write('no')
             disclaimer_read_file_write.close()
             input('Press enter to close')
@@ -200,11 +200,11 @@ def lisense_system():
         print('\nWould you like to veiw the credits for the prograrm?')
         ##see_credits = input('(Y/N):')
         if see_credits == 'Y':
-            credits_file = open('credits.txt','rt')
+            credits_file = open('dependency_files/credits.txt','rt')
             credits_ = credits_file.readline()
             credits_file.close()
             ##print(credits_)
-            credits_record_write = open('credits_read.txt','wt')
+            credits_record_write = open('dependency_files/credits_read.txt','wt')
             credits_record_write.write('Yes')
             credits_record_write.close()
         elif see_credits == 'N':
@@ -214,10 +214,10 @@ def lisense_system():
         ##print('\nWould you like to see the bug finder list?')
         ##see_bug_finders = input('(Y/N):')
         if see_bug_finders == 'Y' or bugfinders_read != 'Yes':
-            bug_finder_file = open('Bugfinders.txt','rt')
+            bug_finder_file = open('dependency_files/Bugfinders.txt','rt')
             bug_finder_data = bug_finder_file.readline()
             ##print(bug_finder_data)
-            bug_finder_record_write = open('bugfinders_read.txt','wt')
+            bug_finder_record_write = open('dependency_files/bugfinders_read.txt','wt')
             bug_finder_record_write.write('Yes')
             bug_finder_record_write.close()
         elif see_bug_finders == 'N':
@@ -227,20 +227,20 @@ def lisense_system():
         ##print('\nWould you like to see the full change log?')
         ##see_full_changelog = input('(Y/N):')
         if see_full_changelog == 'Y':
-            latest_changelog_record_write = open('changelog_latest_read.txt','wt')
+            latest_changelog_record_write = open('dependency_files/changelog_latest_read.txt','wt')
             latest_changelog_record_write.write('Yes')
             latest_changelog_record_write.close()
-            changelog_file = open('changelog.txt','rt')
+            changelog_file = open('dependency_files/changelog.txt','rt')
             changelog_data = changelog_file.readline()
             ##print(changelog_data)
         elif see_full_changelog == 'N' or changelog_latest_read != 'Yes':
             ##print('\nWould you like to see the changes in the latest version?')
             ##see_changelog_latest = input('(Y/N):')
             if see_changeglog_latest == 'Y':
-                latest_changelog_file = open('changelog_latest','rt')
+                latest_changelog_file = open('dependency_files/changelog_latest','rt')
                 latest_changelog_data = latest_changelog_file.readline()
                 ##print(latest_changelog_data)
-                latest_changelog_record_write = open('changelog_latest_read.txt','wt')
+                latest_changelog_record_write = open('dependency_files/changelog_latest_read.txt','wt')
                 latest_changelog_record_write.write('Yes')
                 latest_changelog_record_write.close()
             elif see_changelog_latest == 'N':
@@ -255,7 +255,7 @@ def lisense_system():
     elif dependencies_up_to_date == 'No' and new_install == 'Yes':
         pass
         ##print('It seems all the .txt files have not been fully un-ziped when you installed this prograrm please try and re-un-zip this prograrm of you are having issues please contact a member of the dev team')
-    version_file_write = open('version_last_ran.txt','wt')
+    version_file_write = open('dependency_files/version_last_ran.txt','wt')
     version_file_write.write(current_version)
     version_file_write.close()
 
@@ -265,7 +265,7 @@ def logon_system ():
     while valid_answer == 'No': #will run until the user answers in the Y/N format
         ##user_already_has_account = input('Do you already have an account (Y/N) :') #asks the user if they already have an account
         if user_already_has_account == 'Y': #sees if the user answered yes to the question
-            logon_data = open('logon_data.txt','w+')#opens the file for reading
+            logon_data = open('dependency_files/logon_data.txt','w+')#opens the file for reading
             logon_data_list = logon_data.readlines() #puts all data from all lines of the file into a list with each line as its own entry
             ##username = input('Please input your username :') #asks the user for their username
             valid_answer = 'Yes'
@@ -312,18 +312,18 @@ def logon_system ():
                 if password_confirmation == 'Y':
                     valid_password = 'Yes'
             ##print('Creating account...\n')
-            number_of_needed_lines_file = open('number_of_needed_lines.txt','rt')
+            number_of_needed_lines_file = open('dependency_files/number_of_needed_lines.txt','rt')
             number_of_needed_lines = number_of_needed_lines_file.readline()
             number_of_needed_lines = int(number_of_needed_lines)
             number_of_needed_lines_file.close()
-            username_data = open('logon_data.txt','a+')
+            username_data = open('dependency_files/logon_data.txt','a+')
             username_data.write(new_username+"\n")
             username_data.write(new_password+"\n")
             #appends the user's new account name and password to the document for later refrance
             username_data.close()
             times_ran = 0
             while number_of_needed_lines > times_ran:
-                username_data = open('logon_data.txt','a+')
+                username_data = open('dependency_files/logon_data.txt','a+')
                 username_data.write(' \n')
                 username_data.close()
                 times_ran = times_ran + 1
@@ -335,16 +335,16 @@ def logon_system ():
     ##print('\nWelcome to my maths quiz program ',user_nickname,'\n')
 
 def stat_update():
-    total_questions = open('total_questions.txt','wt')
+    total_questions = open('dependency_files/total_questions.txt','wt')
     total_questions.write('0')
     total_questions.close()
-    total_score = open('total_score.txt','wt')
+    total_score = open('dependency_files/total_score.txt','wt')
     total_score.write('0')
     total_score.close()
-    no_reset_file_create = open('no_reset.txt','wt')
+    no_reset_file_create = open('dependency_files/no_reset.txt','wt')
     no_reset_file_create.write('N')
     no_reset_file_create.close()
-    logon_data_file_wipe = open('logon_data.txt','wt')
+    logon_data_file_wipe = open('dependency_files/logon_data.txt','wt')
     logon_data_file_wipe.write('#Header')
     logon_data_file_wipe.close()
     ##print('Stat reset compleate!')
@@ -352,9 +352,9 @@ def stat_update():
 def reset_stats_system ():
     valid_input = 'false'
     reset_stats_version_number = '0.2.0.A'
-    reset_stats_file = open('reset_stats_version.txt','w+')
+    reset_stats_file = open('dependency_files/reset_stats_version.txt','w+')
     last_reset_stats_version_ran = reset_stats_file.readline()
-    version_last_ran_file = open('version_last_ran.txt','rt')
+    version_last_ran_file = open('dependency_files/version_last_ran.txt','rt')
     version_last_ran = version_last_ran_file.readline()
     version_last_ran_file.close()
     if last_reset_stats_version_ran != reset_stats_version_number:
@@ -369,7 +369,7 @@ def reset_stats_system ():
         stat_update_YN = 'Y'
     else:
         stat_update_YN = 'N'
-    no_reset_file_read = open('no_reset.txt','rt')
+    no_reset_file_read = open('dependency_files/no_reset.txt','rt')
     no_reset = no_reset_file_read.readline()
     if no_reset == 'N' and version_last_ran != 'never':
         ##print('Would you like to reset your stats for the game?')
@@ -580,13 +580,13 @@ def bunch_ending_system():
                 percentage = precentage
                 #gives the user their percentage for this whole instance that the program has beem ran
                 ##print('\nDuring this whole session you did a total of: ',total_questions,' questions.\nAnd a total of: ',score,' were correct.\nThat leaves you with a percentage of: ',percentage,'% correct.\n')
-                total_questions_file_read = open('total_questions.txt','rt')
+                total_questions_file_read = open('dependency_files/total_questions.txt','rt')
                 total_questions_all_time =  total_questions_file_read.readline()
                 total_questions_all_time = int(total_questions_all_time)
                 total_questions = total_questions + total_questions_all_time
                 #calculates then displays the total questions ever done using this program by fetching data from a .txt file in the game directory
                 ##print('Out of all the time you have been using this program you have compeated:\nA total of: ',total_questions,' questions!\n')
-                total_score_file_read = open('total_score.txt','rt')
+                total_score_file_read = open('dependency_files/total_score.txt','rt')
                 score_all_time = total_score_file_read.readline()
                 score_all_time = int(score_all_time)
                 score = score + score_all_time
@@ -600,9 +600,9 @@ def bunch_ending_system():
                 total_questions_file_read.close()
                 score = str(score)
                 total_questions = str(total_questions)
-                total_score_file_write = open('total_score.txt','wt')
+                total_score_file_write = open('dependency_files/total_score.txt','wt')
                 #writes the new updated stats to the .txt file for future useage
-                total_questions_file_write = open('total_questions.txt','wt')
+                total_questions_file_write = open('dependency_files/total_questions.txt','wt')
                 total_questions_file_write.write(total_questions)
                 total_score_file_write.write(score)
                 total_score_file_write.close()
@@ -629,7 +629,7 @@ GUI.title('Progressus Maths')
 GUI.state('zoomed')
 GUI.iconbitmap('images/P-maths.ico')
 
-Exit_button = Button(GUI, text = '', state = DISABLED command = GUI.quit)
+Exit_button = Button(GUI, text = '', state = DISABLED, command = GUI.quit)
 
 answer_message_box = Label(GUI, text = '')
 
