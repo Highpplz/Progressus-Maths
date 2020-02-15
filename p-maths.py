@@ -145,7 +145,7 @@ def lisense_system():
     if read != 'Yes' or new_version == 'Yes' or new_install == 'Yes' or any_read_files == 'No' or new_account == 'Yes':
         ##open_file_internaly = input('Would you like to read the lisense file in program?\n(Y/N) :')
         if open_file_internaly == 'Y':
-            lisense = open('lisense(.txt_version).txt,'rt')
+            lisense = open('lisense(.txt_version).txt','rt')
             ##print (lisense.readlines())
         elif open_file_internaly == 'N':
             pass
