@@ -576,50 +576,54 @@ def bunch_ending_system():
             ##quit_yn = input('Please answer in the format (Y/N): ')
             #asks the user if they whant to end their session of the program
             if quit_yn == 'Y':
-                percentage = score / total_questions
-                percentage = precentage
-                #gives the user their percentage for this whole instance that the program has beem ran
-                ##print('\nDuring this whole session you did a total of: ',total_questions,' questions.\nAnd a total of: ',score,' were correct.\nThat leaves you with a percentage of: ',percentage,'% correct.\n')
-                total_questions_file_read = open('dependency_files/total_questions.txt','rt')
-                total_questions_all_time =  total_questions_file_read.readline()
-                total_questions_all_time = int(total_questions_all_time)
-                total_questions = total_questions + total_questions_all_time
-                #calculates then displays the total questions ever done using this program by fetching data from a .txt file in the game directory
-                ##print('Out of all the time you have been using this program you have compeated:\nA total of: ',total_questions,' questions!\n')
-                total_score_file_read = open('dependency_files/total_score.txt','rt')
-                score_all_time = total_score_file_read.readline()
-                score_all_time = int(score_all_time)
-                score = score + score_all_time
-                ##print('And a total of: ',score,' were correct.\n')
-                #does the same as the last comment but this time fore score
-                percentage = score / total_questions
-                percentage = percentage * 100
-                ##print('That makes for an all time percentage of: ',percentage,'% correct.\n')
-                #uses the 2 above mentioned stats to make an all time percentage
-                total_score_file_read.close()
-                total_questions_file_read.close()
-                score = str(score)
-                total_questions = str(total_questions)
-                total_score_file_write = open('dependency_files/total_score.txt','wt')
-                #writes the new updated stats to the .txt file for future useage
-                total_questions_file_write = open('dependency_files/total_questions.txt','wt')
-                total_questions_file_write.write(total_questions)
-                total_score_file_write.write(score)
-                total_score_file_write.close()
-                total_questions_file_write.close()
-                ##print('Your score and questions done have been sucessfully saved!')
-                #tells the user they have been saved then exits the loop
-                validation_loop_variable = 'Valid'
-                ##print('The progarm has finsished running.')
-                ##input('Press enter to exit')
-                #uses an input so the program waits before closing to give the user time to acknowlege the messages that have been sent before closing
-                exit()
+                pass
             elif quit_yn == 'N':
                 validation_loop_variable = 'Valid'
                 ##print('Thank you for choosing to continute to play!\n')
             else:
                 ##print('Please use the (Y/N) format for your answer')
                 validation_loop_variable = 'Not Valid'
+
+def progarm_closing():
+    percentage = score / total_questions
+    percentage = precentage
+    #gives the user their percentage for this whole instance that the program has beem ran
+    ##print('\nDuring this whole session you did a total of: ',total_questions,' questions.\nAnd a total of: ',score,' were correct.\nThat leaves you with a percentage of: ',percentage,'% correct.\n')
+    total_questions_file_read = open('dependency_files/total_questions.txt','rt')
+    total_questions_all_time =  total_questions_file_read.readline()
+    total_questions_all_time = int(total_questions_all_time)
+    total_questions = total_questions + total_questions_all_time
+    #calculates then displays the total questions ever done using this program by fetching data from a .txt file in the game directory
+    ##print('Out of all the time you have been using this program you have compeated:\nA total of: ',total_questions,' questions!\n')
+    total_score_file_read = open('dependency_files/total_score.txt','rt')
+    score_all_time = total_score_file_read.readline()
+    score_all_time = int(score_all_time)
+    score = score + score_all_time
+    ##print('And a total of: ',score,' were correct.\n')
+    #does the same as the last comment but this time fore score
+    percentage = score / total_questions
+    percentage = percentage * 100
+    ##print('That makes for an all time percentage of: ',percentage,'% correct.\n')
+    #uses the 2 above mentioned stats to make an all time percentage
+    total_score_file_read.close()
+    total_questions_file_read.close()
+    score = str(score)
+    total_questions = str(total_questions)
+    total_score_file_write = open('dependency_files/total_score.txt','wt')
+    #writes the new updated stats to the .txt file for future useage
+    total_questions_file_write = open('dependency_files/total_questions.txt','wt')
+    total_questions_file_write.write(total_questions)
+    total_score_file_write.write(score)
+    total_score_file_write.close()
+    total_questions_file_write.close()
+    ##print('Your score and questions done have been sucessfully saved!')
+    #tells the user they have been saved then exits the loop
+    validation_loop_variable = 'Valid'
+    ##print('The progarm has finsished running.')
+    ##input('Press enter to exit')
+    #uses an input so the program waits before closing to give the user time to acknowlege the messages that have been sent before closing
+    input('Press enter to close this window:')
+    exit()
 
 #if new_install == 'Yes':
     #reset_stats_system()
@@ -629,7 +633,7 @@ GUI.title('Progressus Maths')
 GUI.state('zoomed')
 GUI.iconbitmap('images\pm_Multi_ico')
 
-Exit_button = Button(GUI, text = '', state = DISABLED, command = GUI.quit)
+Exit_button = Button(GUI, text = '', state = DISABLED, command = progarm_closing)
 
 answer_message_box = Label(GUI, text = '')
 
