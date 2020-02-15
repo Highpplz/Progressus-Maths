@@ -627,7 +627,7 @@ def bunch_ending_system():
 GUI = Tk()
 GUI.title('Progressus Maths')
 GUI.state('zoomed')
-GUI.iconbitmap('images/P-maths.ico')
+GUI.iconbitmap('images\pm_Multi_ico')
 
 Exit_button = Button(GUI, text = '', state = DISABLED, command = GUI.quit)
 
