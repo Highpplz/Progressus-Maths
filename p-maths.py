@@ -618,8 +618,8 @@ def bunch_ending_system():
                 ##print('Please use the (Y/N) format for your answer')
                 validation_loop_variable = 'Not Valid'
 
-if new_install == 'Yes':
-    reset_stats_system()
+#if new_install == 'Yes':
+    #reset_stats_system()
 
 GUI = Tk()
 GUI.title('Progressus Maths')
