@@ -1,3 +1,0 @@
-This document lists all the people that have found bugs and reported them direclty to a dev team member:
-
-Epig
