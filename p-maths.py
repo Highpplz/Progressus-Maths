@@ -107,7 +107,7 @@ def lisense_system():
         read = 'no'
         any_read_files == 'No'
     if read != 'Yes' or new_version == 'Yes' or new_install == 'Yes' or any_read_files == 'No' or new_account == 'Yes':
-        open_file_internaly = input('Would you like to read the lisense file in program?\n(Y/N) :')
+        ##open_file_internaly = input('Would you like to read the lisense file in program?\n(Y/N) :')
         if open_file_internaly == 'Y':
             lisense = open('lisense(.txt_version).txt,'rt')
             ##print (lisense.readlines())
@@ -118,7 +118,7 @@ def lisense_system():
             ##print('Attempted bypass of lisense term accepting system detected, now closing prograrm!')
             ##input('Press enter to exit')
             exit()
-        print('Do you accept the lisense terms?')
+        ##print('Do you accept the lisense terms?')
         ##accept = input('(Y/N)')
         if accept == 'N':
             ##print('You have denided the terms you have 24 hrs from the time that you downloaded the software to remove all traces of it from your computer (or any storage devices owned/managed by you) or accept!')
