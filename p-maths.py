@@ -72,7 +72,7 @@ version_last_ran_file = open('version_last_ran.txt','rt')
 version_last_ran_start_of_file = version_last_ran_file.readline()
 version_last_ran_file.close()
 if version_last_ran_start_of_file == 'New Install':
-    new_install == 'Yes'
+    new_install = 'Yes'
     installer()
 
 internal_dependency_number = '3'
